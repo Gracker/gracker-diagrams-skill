@@ -1,0 +1,9 @@
+# 系统
+.DS_Store
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 出图产物（不提交产物，只提交 skill 本身）
