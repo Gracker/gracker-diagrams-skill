@@ -51,6 +51,31 @@ gracker-diagrams/
     └── init_diagram_run.py            # 目录初始化
 ```
 
+## Samples（展示能力）
+
+四张示例，展示不同主题、布局和信息密度：
+
+| 编号 | 主题 | 布局 | 密度 |
+|------|------|------|------|
+| 01 | Agent Loop 迭代循环 | hub-spoke | 稀疏 |
+| 02 | Tool 执行管道 5 阶段 | linear pipeline | 中等 |
+| 03 | Context 架构分解 | structural breakdown | 中等偏密 |
+| 04 | 并发执行 + Perfetto tracks | timeline + hub | 中等 |
+
+### 01 - Agent Loop
+![01-iterative-loop](samples/01-iterative-loop.jpg)
+
+### 02 - Tool 执行管道
+![02-tool-execution](samples/02-tool-execution.jpg)
+
+### 03 - Context 架构
+![03-context-architecture](samples/03-context-architecture.jpg)
+
+### 04 - 并发执行 + Perfetto
+![04-concurrent-execution](samples/04-concurrent-execution.jpg)
+
+---
+
 ## 使用方式
 
 1. 读 `SKILL.md`
