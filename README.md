@@ -17,6 +17,12 @@
 
 ## 安装
 
+### npm（推荐）
+
+```bash
+npx skills add Gracker/gracker-diagrams-skill --yes --global
+```
+
 ### ClawHub
 
 ```bash

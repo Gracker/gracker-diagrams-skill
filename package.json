@@ -1,0 +1,13 @@
+{
+  "name": "gracker-diagrams-skill",
+  "version": "1.0.0",
+  "description": "OpenClaw skill: whiteboard architecture diagrams + macaron infographics in Gracker's preferred hand-drawn style",
+  "keywords": ["openclaw", "skill", "diagram", "architecture", "infographic", "whiteboard", "mermaid"],
+  "license": "MIT",
+  "author": "Gracker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gracker/gracker-diagrams-skill.git"
+  },
+  "files": ["SKILL.md", "references/**", "README.md"]
+}
