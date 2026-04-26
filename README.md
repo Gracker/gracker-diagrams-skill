@@ -17,21 +17,15 @@
 
 ## 安装
 
-### npm（推荐）
-
 ```bash
 npx skills add Gracker/gracker-diagrams-skill --yes --global
 ```
 
-### ClawHub
+或 ClawHub：
 
 ```bash
 clawhub install gracker-diagrams
 ```
-
-### 手动
-
-把 `gracker-diagrams/` 放入 skills 目录即可。
 
 ## 触发词
 
