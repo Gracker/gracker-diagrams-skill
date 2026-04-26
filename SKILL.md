@@ -1,15 +1,19 @@
 ---
 name: gracker-diagrams
 description: >-
-  Generate architecture diagrams, Mermaid-to-image redraws, and technical infographics
-  in Gracker's preferred style. Two modes:
+  Generate architecture diagrams, Mermaid-to-image redraws, and technical infographics.
+  Three modes:
   (1) Whiteboard architecture — Excalidraw-like hand-drawn visual abstracts with
   low-saturation pastel accents, thick black outlines, orthogonal arrows, and
   optional Perfetto-style timeline tracks.
   Trigger: 画图, 架构图, 系统图, 模块关系, Mermaid 转图, 流程图, 时序图, 白板图.
   (2) Macaron infographic — hand-drawn educational infographic on warm cream
-  paper with pastel cards, wavy arrows, cartoon icons, vertical layout, and bottom quote.
+  paper with pastel rounded cards, wavy arrows, cartoon icons, vertical layout, and bottom quote.
   Trigger: 信息图, infographic, 单页摘要, 竖屏图, 长图, 知识总结图, 框架图, Skill 概览图.
+  (3) Gracker infographic — no card borders, high text density, background color zones
+  with hand-drawn connecting lines, minimal icons, warm cream paper. Optimized for
+  technical content with rich detail.
+  Trigger: gracker图, 技术信息图, 调研图, 深度信息图, 技术长图.
 ---
 
 # Gracker Diagrams
@@ -35,6 +39,7 @@ description: >-
 |------|--------|----------|
 | **白板架构图**（默认） | 架构图、系统图、模块关系、Mermaid 转图、流程图、时序图、白板图、画图 | 系统拆解、组件关系、渲染管线、请求链路 |
 | **马卡龙信息图** | 信息图、infographic、单页摘要、竖屏图、长图、知识总结图、框架图、Skill 概览图 | 知识体系总结、方法论概览、Skill 框架、文章摘要 |
+| **Gracker 信息图** | gracker图、技术信息图、调研图、深度信息图、技术长图 | 技术调研摘要、深度内容可视化、高文字密度技术长图 |
 
 判断不了的默认走白板架构图。
 
@@ -217,7 +222,55 @@ description: >-
 
 ---
 
-## 什么时候不要用这个 skill
+## 风格 C：Gracker 信息图
+
+先读：
+- `references/gracker-style-guide.md`
+- `references/gracker-prompt-template.md`
+
+### 输出流程
+
+与风格 A 共享步骤 1-4（建目录 → 保存原始内容 → 分析信息结构 → 生成结构化内容），但后续步骤有差异：
+
+#### 5. 选布局（Gracker 适配）
+
+- 竖屏优先（`1024x1536`）
+- 高密度纵向布局，模块间手绘线条连接递进
+- 背景色自然区分，不要卡片框
+- 内容多时用编号区块组织
+
+#### 6. 生成 prompt
+
+基于 `references/gracker-prompt-template.md` 生成。
+
+核心风格硬约束（已在模板中，不需重复）：
+- 暖奶油纸底 #F5F0E8
+- 不要卡片框，背景色自然过渡
+- 文字密度优先，图标克制
+- 手绘线条和波浪箭头连接
+- 底部金句
+
+#### 7. 出图
+
+使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
+
+建议参数：
+- `model`: `openai/gpt-image-2`（必须）
+- `size`: `1024x1536`
+- `filename`: `<slug>-gracker.png`
+
+#### 8. 验收
+
+- 一眼能看懂信息结构
+- 没有卡片框、气泡框、虚线框
+- 背景色自然过渡区分模块
+- 文字密度高，技术细节保留完整
+- 有手绘线条和波浪箭头连接
+- 图标少，文字为主
+- 底部有金句
+- 竖屏比例
+
+不满足就改 prompt，重试 1 次。
 
 以下情况不要硬套：
 - 数据图表、折线图、柱状图，用 vega / data visualization 工具
