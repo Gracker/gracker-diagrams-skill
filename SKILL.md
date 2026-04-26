@@ -121,9 +121,10 @@ description: >-
 
 ### 7. 出图
 
-优先用 `image_generate`。
+使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
 
 建议参数：
+- `model`: `openai/gpt-image-2`（必须）
 - `aspectRatio`: `16:9`（默认，横屏）
 - `filename`: `<slug>.png`
 
@@ -184,9 +185,11 @@ description: >-
 
 #### 7. 出图
 
-用 `image_generate`，建议参数：
-- `aspectRatio`: `3:4`（竖屏优先）
-- 或 `size`: `1024x1536`
+使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
+
+建议参数：
+- `model`: `openai/gpt-image-2`（必须）
+- `size`: `1024x1536`
 - `filename`: `<slug>-macaron.png`
 
 #### 8. 验收
