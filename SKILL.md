@@ -16,6 +16,17 @@ description: >-
 
 默认目标不是“华丽”，而是 **低压感、高解释力、强结构化**。保留 baoyu-infographic 的主流程，但把风格固定成 Gracker 偏好的技术手绘风。
 
+## 强制执行原则
+
+不要直接手写最终 `image_generate` prompt。必须先按流程产出中间文件：
+
+1. `source.md`：保存原始输入或原文摘录
+2. `analysis.md`：分析信息结构和取舍依据
+3. `structured-content.md`：由 Skill 决定哪些内容进入图片
+4. `prompts/infographic.md`：基于对应 prompt template 生成最终出图 prompt
+
+只有完成以上文件后，才能调用 `image_generate`。如果内容很长，Skill 负责筛选高价值信息，而不是由临场 prompt 任意压缩。
+
 ## 风格路由
 
 根据用户意图选择风格：
