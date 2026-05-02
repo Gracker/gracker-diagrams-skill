@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gracker Diagrams"
+  short_description: "Technical diagram prompt packs"
+  default_prompt: "Use $gracker-diagrams to turn this technical content into a diagram prompt pack."

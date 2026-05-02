@@ -1,6 +1,6 @@
 # gracker-diagrams
 
-面向技术内容的 AI 画图 Skill，三种风格一键切换。
+面向技术内容的 AI 画图 Skill，三种风格一键切换。默认产出可复用的 prompt pack；如果运行环境有图片生成或绘图能力，再按需渲染成图。
 
 ## 风格
 
@@ -17,15 +17,13 @@
 
 ## 安装
 
+默认安装仓库当前默认分支，不需要版本号：
+
 ```bash
 npx skills add Gracker/gracker-diagrams-skill --yes --global
 ```
 
-或 ClawHub：
-
-```bash
-clawhub install gracker-diagrams
-```
+需要可复现安装时，先发布 Git tag 或 release，再按安装器支持的 tag / commit 语法固定版本；当前命令不写虚构版本号。
 
 ## 触发词
 
@@ -38,15 +36,15 @@ clawhub install gracker-diagrams
 ## 工作流程
 
 ```
-原始内容 → 分析结构 → 选布局 → 生成 prompt → 出图 → 验收
+原始内容 → 分析结构 → 选布局 → 生成 prompt pack → 可选渲染 → 验收
 ```
 
 每种风格有独立的 style guide 和 prompt template，详见 `references/` 目录。
 
 ## 依赖
 
-- OpenClaw（或任何支持 Skill 格式的 AI agent 运行时）
-- `image_generate` 工具（文生图后端）
+- 任意支持读取 Skill 指令并写入文件的 AI 运行环境
+- 图片生成、绘图或浏览器渲染能力是可选项；没有这些能力时，交付 prompt pack
 
 ## Samples
 

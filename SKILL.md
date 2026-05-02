@@ -18,18 +18,18 @@ description: >-
 
 # Gracker Diagrams
 
-默认目标不是“华丽”，而是 **低压感、高解释力、强结构化**。保留 baoyu-infographic 的主流程，但把风格固定成 Gracker 偏好的技术手绘风。
+默认目标不是“华丽”，而是 **低压感、高解释力、强结构化**。采用“先结构化内容，再生成视觉 prompt，最后按需渲染”的流程，把风格固定成 Gracker 偏好的技术手绘风。
 
 ## 强制执行原则
 
-不要直接手写最终 `image_generate` prompt。必须先按流程产出中间文件：
+不要把原文直接丢给图片生成/绘图工具，也不要临场手写最终 prompt。必须先按流程产出中间文件：
 
 1. `source.md`：保存原始输入或原文摘录
 2. `analysis.md`：分析信息结构和取舍依据
-3. `structured-content.md`：由 Skill 决定哪些内容进入图片
-4. `prompts/infographic.md`：基于对应 prompt template 生成最终出图 prompt
+3. `structured-content.md`：由 Skill 决定哪些内容进入视觉成品
+4. `prompts/infographic.md`：基于对应 prompt template 生成最终视觉 prompt
 
-只有完成以上文件后，才能调用 `image_generate`。如果内容很长，Skill 负责筛选高价值信息，而不是由临场 prompt 任意压缩。
+只有完成以上文件后，才能进入交付或可选渲染。如果内容很长，Skill 负责筛选高价值信息，而不是由临场 prompt 任意压缩。
 
 ## 风格路由
 
@@ -54,7 +54,7 @@ description: >-
 
 ## 输出流程
 
-### 1. 建立本次出图目录
+### 1. 建立本次工作目录
 
 手动创建：
 
@@ -66,7 +66,7 @@ description: >-
 ├── prompts/
 │   └── infographic.md
 └── output/
-    └── diagram.png
+    └── diagram.png  # 可选：只有实际渲染后才需要
 ```
 
 如果用户已经给了固定目录，直接用用户目录，不额外新建层级。
@@ -135,12 +135,11 @@ description: >-
 - 手绘/白板精修感
 - 如果有时间、阶段、并发，加入 Perfetto-style 横向 tracks 或 timeline bars
 
-### 7. 出图
+### 7. 交付或可选渲染
 
-使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
+默认交付 `source.md`、`analysis.md`、`structured-content.md` 和 `prompts/infographic.md`。如果用户要求成图，且当前运行环境提供图片生成、绘图、浏览器渲染或设计工具，可以使用可用工具渲染；不得在 Skill 中固定模型、供应商或工具名。
 
-建议参数：
-- `model`: `openai/gpt-image-2`（必须）
+建议输出约束：
 - `aspectRatio`: `16:9`（默认，横屏）
 - `filename`: `<slug>.png`
 
@@ -160,8 +159,8 @@ description: >-
 
 如果原始输入是 Mermaid：
 - **保留 Mermaid 源码**
-- 同时生成一张展示版图片
-- 如果需要精确版，再补一张 SVG 渲染版
+- 如有可用渲染能力，同时生成一张展示版图片；否则交付展示版 prompt
+- 如果需要精确版，再补一张 SVG 或 Mermaid 原生渲染版
 - 文档里推荐顺序：展示版 → 精确版 → Mermaid 源码
 
 ---
@@ -199,12 +198,11 @@ description: >-
 - 粗体大号手绘字标题居中
 - 底部金句
 
-#### 7. 出图
+#### 7. 交付或可选渲染
 
-使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
+默认交付 prompt pack。若用户要求成图，且当前运行环境提供图片生成或设计工具，可以使用可用工具渲染；不得在 Skill 中固定模型、供应商或工具名。
 
-建议参数：
-- `model`: `openai/gpt-image-2`（必须）
+建议输出约束：
 - `size`: `1024x1536`
 - `filename`: `<slug>-macaron.png`
 
@@ -250,12 +248,11 @@ description: >-
 - 手绘线条和波浪箭头连接
 - 底部金句
 
-#### 7. 出图
+#### 7. 交付或可选渲染
 
-使用 `image_generate`，**必须指定 `model: openai/gpt-image-2`**，不要省略 model 参数。
+默认交付 prompt pack。若用户要求成图，且当前运行环境提供图片生成或设计工具，可以使用可用工具渲染；不得在 Skill 中固定模型、供应商或工具名。
 
-建议参数：
-- `model`: `openai/gpt-image-2`（必须）
+建议输出约束：
 - `size`: `1024x1536`
 - `filename`: `<slug>-gracker.png`
 
@@ -282,6 +279,7 @@ description: >-
 最终汇报只说：
 - 图名
 - 选用布局
-- 输出路径
+- prompt pack 路径
+- 成图路径（如已渲染）
 - 是否保留 Mermaid/SVG
-- 是否通过一轮视觉验收
+- 是否通过一轮视觉验收（如已渲染）
