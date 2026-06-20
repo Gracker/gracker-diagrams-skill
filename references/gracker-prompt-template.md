@@ -23,7 +23,7 @@
 
 渲染细节：涂鸦装饰点缀（小星星、下划线、小箭头等），充足留白，干净构图。
 
-底部金句：图片底部一句粗体居中总结，概括核心观点。
+底部总结：可选。只有在用户明确需要收束句时，才在图片底部放一句粗体居中的正向短句。禁止使用“不是 X，而是 Y”“并不是 X，而是 Y”这类反差句式，也不要把宣传 slogan 写成大段口号。
 
 Text labels (in Chinese):
 <TEXT_LABELS>
@@ -40,5 +40,5 @@ Generate the infographic based on the content below:
 - 标题: <title>
 - 主模块: <module names comma-separated>
 - 标注: <annotation texts>
-- 底部金句: <one-sentence summary>
+- 底部总结（可选）: <one-sentence positive summary; avoid "不是 X，而是 Y" contrast pattern>
 ```

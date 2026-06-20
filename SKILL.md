@@ -8,7 +8,7 @@ description: >-
   optional Perfetto-style timeline tracks.
   Trigger: 画图, 架构图, 系统图, 模块关系, Mermaid 转图, 流程图, 时序图, 白板图.
   (2) Macaron infographic — hand-drawn educational infographic on warm cream
-  paper with pastel rounded cards, wavy arrows, cartoon icons, vertical layout, and bottom quote.
+  paper with pastel rounded cards, wavy arrows, cartoon icons, vertical layout, and optional bottom summary.
   Trigger: 信息图, infographic, 单页摘要, 竖屏图, 长图, 知识总结图, 框架图, Skill 概览图.
   (3) Gracker infographic — no card borders, high text density, background color zones
   with hand-drawn connecting lines, minimal icons, warm cream paper. Optimized for
@@ -18,7 +18,7 @@ description: >-
 
 # Gracker Diagrams
 
-默认目标不是“华丽”，而是 **低压感、高解释力、强结构化**。采用“先结构化内容，再生成视觉 prompt，最后按需渲染”的流程，把风格固定成 Gracker 偏好的技术手绘风。
+默认目标：**低压感、高解释力、强结构化**，视觉克制但信息扎实。采用“先结构化内容，再生成视觉 prompt，最后按需渲染”的流程，把风格固定成 Gracker 偏好的技术手绘风。
 
 ## 强制执行原则
 
@@ -196,7 +196,7 @@ description: >-
 - 手绘波浪箭头
 - 简笔画卡通 + 涂鸦装饰
 - 粗体大号手绘字标题居中
-- 底部金句
+- 底部总结可选；如果使用，必须是正向短句，禁用“不是 X，而是 Y”式反差句
 
 #### 7. 交付或可选渲染
 
@@ -212,7 +212,7 @@ description: >-
 - 马卡龙色块出现且不完全填满轮廓
 - 有手绘抖动感
 - 有涂鸦装饰（星星、下划线、小箭头）
-- 底部有金句
+- 如有底部总结，必须是正向短句，且未使用“不是 X，而是 Y”式反差句
 - 竖屏比例
 - 不是白板架构图风格
 
@@ -246,7 +246,7 @@ description: >-
 - 不要卡片框，背景色自然过渡
 - 文字密度优先，图标克制
 - 手绘线条和波浪箭头连接
-- 底部金句
+- 底部总结可选；如果使用，必须是正向短句，禁用“不是 X，而是 Y”式反差句
 
 #### 7. 交付或可选渲染
 
@@ -264,7 +264,7 @@ description: >-
 - 文字密度高，技术细节保留完整
 - 有手绘线条和波浪箭头连接
 - 图标少，文字为主
-- 底部有金句
+- 如有底部总结，必须是正向短句，且未使用“不是 X，而是 Y”式反差句
 - 竖屏比例
 
 不满足就改 prompt，重试 1 次。
